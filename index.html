@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GOAT Arena 2: Who is the greatest footballer?</title>
+<style><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HSGGY9SMTG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HSGGY9SMTG');
+</script>
+:root{--bg:#06070b;--card:#10131c;--ink:#f4f6fb;--mut:#8f97ab;--a:#7cffb2;--b:#ff4d6d;--c:#ffd24a;--line:#232838;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f3f5f0;--card:#fff;--ink:#10131c;--mut:#5b6275;--a:#047a45;--b:#d11f45;--c:#9a6b00;--line:#d8dccf}}
+:root[data-theme="light"]{--bg:#f3f5f0;--card:#fff;--ink:#10131c;--mut:#5b6275;--a:#047a45;--b:#d11f45;--c:#9a6b00;--line:#d8dccf}
+:root[data-theme="dark"]{--bg:#06070b;--card:#10131c;--ink:#f4f6fb;--mut:#8f97ab;--a:#7cffb2;--b:#ff4d6d;--c:#ffd24a;--line:#232838}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;overflow-x:hidden}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:auto;padding:0 18px}
+header.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:10px;height:60px}
+.logo{font-weight:900;letter-spacing:-.5px;font-size:1.15rem;margin-right:auto}.logo b{color:var(--a)}
+.tab,.ic{background:none;border:1px solid var(--line);color:var(--mut);padding:8px 13px;border-radius:99px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--a);border-color:var(--a);color:#04140b}
+.hero{padding:54px 0 14px;text-align:center}
+h1{font-size:clamp(2.6rem,10vw,6rem);line-height:.95;margin:10px 0;letter-spacing:-3px;font-weight:900}
+h1 span{background:linear-gradient(90deg,var(--a),var(--c),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200%;animation:sh 6s linear infinite}
+@keyframes sh{to{background-position:200%}}
+.words{height:1.5em;overflow:hidden;color:var(--b);font-weight:800;font-size:1.2rem}
+.words div{transition:transform .5s cubic-bezier(.7,0,.2,1)}.words p{margin:0;height:1.5em}
+.lead{color:var(--mut);max-width:560px;margin:8px auto 0}
+section[hidden]{display:none}
+section{padding:26px 0 50px}
+h2{font-size:clamp(1.6rem,5vw,2.4rem);margin:0 0 4px;letter-spacing:-1px}.sub{color:var(--mut);margin:0 0 20px}
+.btn{background:var(--a);color:#04140b;border:0;border-radius:12px;padding:13px 22px;font:inherit;font-weight:800;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px)}.btn.g{background:none;color:var(--ink);border:1px solid var(--line)}.btn.r{background:var(--b);color:#fff}
+.prog{display:flex;gap:6px;margin:8px 0 18px}.prog i{flex:1;height:5px;border-radius:5px;background:var(--line)}.prog i.on{background:linear-gradient(90deg,var(--a),var(--c))}
+.duel{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:stretch}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;text-align:left;color:var(--ink);font:inherit;cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+.pc:hover,.pc:focus-visible{border-color:var(--a);transform:translateY(-5px);outline:none}
+.pc .fl{font-size:2.2rem}.pc h3{font-size:1.6rem;margin:4px 0;letter-spacing:-.5px}.pc .k{color:var(--c);font-weight:800;font-size:.9rem}.pc p{color:var(--mut);font-size:.9rem;margin:6px 0 12px}
+.pc kbd{position:absolute;top:12px;right:12px;border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:.7rem;color:var(--mut)}
+.vs{align-self:center;font-weight:900;color:var(--b);font-size:1.6rem}
+.st{display:grid;grid-template-columns:78px 1fr 26px;gap:8px;align-items:center;font-size:.72rem;color:var(--mut);margin:5px 0}
+.st u{display:block;height:6px;border-radius:6px;background:var(--line);overflow:hidden;text-decoration:none}.st u i{display:block;height:100%;width:0;background:var(--a);transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.path{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;color:var(--mut);font-size:.8rem}.path b{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:4px 10px;color:var(--ink)}
+.champ{text-align:center;background:var(--card);border:1px solid var(--c);border-radius:26px;padding:34px 18px;animation:z .6s both}@keyframes z{from{opacity:0;transform:scale(.9)}}
+.champ h3{font-size:clamp(2.2rem,8vw,4rem);margin:6px 0;color:var(--c);letter-spacing:-2px}.champ .row{justify-content:center}
+.sel{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+select{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px;font:inherit;width:100%}
+.cmp{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+.cr{display:grid;grid-template-columns:1fr 90px 1fr;gap:10px;align-items:center;margin:12px 0;font-size:.82rem;color:var(--mut);text-align:center}
+.cr u{display:flex;height:9px;background:var(--line);border-radius:9px;overflow:hidden;text-decoration:none}.cr u i{display:block;height:100%;width:0;transition:width .8s}
+.cr u:first-child{justify-content:flex-end}.cr u:first-child i{background:var(--a)}.cr u:last-child i{background:var(--b)}
+.rk{display:grid;grid-template-columns:30px 1fr 60px;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px}
+.rk u{display:block;height:7px;border-radius:7px;background:var(--line);overflow:hidden;text-decoration:none;margin-top:6px}.rk u i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--c));transition:width .9s}
+.pen{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;text-align:center}
+.goal{position:relative;max-width:440px;height:150px;margin:14px auto 40px;border:5px solid var(--ink);border-bottom:0;border-radius:8px 8px 0 0;background:repeating-linear-gradient(45deg,transparent 0 8px,var(--line) 8px 9px)}
+.gk,.ball{position:absolute;transition:all .35s;font-size:2.6rem}.gk{bottom:0;left:50%;transform:translateX(-50%)}.ball{bottom:-46px;left:50%;transform:translateX(-50%);font-size:1.7rem}
+.meter{position:relative;max-width:360px;height:14px;margin:10px auto;border-radius:14px;background:linear-gradient(90deg,var(--b) 0 12%,var(--c) 12% 34%,var(--a) 34% 66%,var(--c) 66% 88%,var(--b) 88%)}
+.meter i{position:absolute;top:-5px;width:6px;height:24px;border-radius:3px;background:var(--ink);box-shadow:0 0 0 2px var(--bg)}
+.dots{letter-spacing:6px;font-size:1.3rem;margin:8px 0}.msg{min-height:1.6em;font-weight:800;margin-top:10px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.facts div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;color:var(--mut);font-size:.9rem}.facts b{display:block;font-size:2rem;color:var(--a);letter-spacing:-1px}
+.bgx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(60vmax 40vmax at 15% -10%,color-mix(in srgb,var(--a) 22%,transparent),transparent 70%),radial-gradient(60vmax 40vmax at 85% -10%,color-mix(in srgb,var(--c) 18%,transparent),transparent 70%)}
+.bgx:after{content:"";position:absolute;left:-30%;right:-30%;bottom:-10%;height:55%;border-top:1px solid var(--line);background:repeating-linear-gradient(90deg,transparent 0 79px,var(--line) 79px 80px),repeating-linear-gradient(0deg,transparent 0 59px,var(--line) 59px 60px);transform:perspective(400px) rotateX(60deg);transform-origin:top;animation:pt 6s linear infinite;mask-image:linear-gradient(#000,transparent);opacity:.6}
+@keyframes pt{to{background-position:0 0,0 60px}}
+.bar .wrap{overflow-x:auto;scrollbar-width:none}.tab{white-space:nowrap}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:560px;margin:22px auto 0}.strip div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:.75rem;color:var(--mut);letter-spacing:1px;text-transform:uppercase}.strip b{display:block;font-size:1.5rem;color:var(--a);letter-spacing:-1px}
+section{border-top:1px solid var(--line)}
+.qo{display:block;width:100%;text-align:left;background:none;border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:13px;margin-top:10px;font:inherit;cursor:pointer;transition:.2s}.qo:hover:not(:disabled){border-color:var(--a)}.qo.ok{background:var(--a);color:#04140b;border-color:var(--a)}.qo.no{background:var(--b);color:#fff;border-color:var(--b)}
+.mg2{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:420px}.mc{aspect-ratio:1;background:var(--card);border:1px solid var(--line);border-radius:14px;font-size:2rem;cursor:pointer;transition:.3s}.mc span{opacity:0;transition:.2s}.mc.up span,.mc.done span{opacity:1}.mc.up{border-color:var(--a)}.mc.done{background:color-mix(in srgb,var(--a) 25%,var(--card))}
+.kbx{position:relative;height:320px;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;touch-action:manipulation}.kball{position:absolute;left:0;top:0;width:40px;height:40px;font-size:2.2rem;line-height:40px;text-align:center;cursor:pointer;user-select:none;padding:0;transform:translate(130px,40px)}.kball:before{content:"";position:absolute;inset:-14px}
+.bgx{background:radial-gradient(ellipse at 50% 120%,#1b1f5e66,transparent 60%)}
+.bgx:before{content:"";position:absolute;inset:-20%;background:radial-gradient(40vmax 30vmax at 20% 30%,#7b2ff755,transparent 70%),radial-gradient(35vmax 28vmax at 80% 60%,#00b4d844,transparent 70%),radial-gradient(30vmax 25vmax at 55% 90%,#ff4d9a33,transparent 70%);animation:nb 40s ease-in-out infinite alternate}
+@keyframes nb{to{transform:translate(4%,-3%) rotate(6deg) scale(1.1)}}
+.bgx:after{left:auto;right:-70px;bottom:-70px;width:280px;height:280px;border:0;border-radius:50%;background:radial-gradient(circle at 30% 30%,#9ad1ff,#3b5bdb 55%,#0b1030 100%);box-shadow:0 0 80px #3b5bdb55;transform:none;animation:plf 10s ease-in-out infinite alternate;mask-image:none;opacity:.5}
+@keyframes plf{to{transform:translateY(-16px)}}
+.bgx{background:linear-gradient(#050810,#0a1224 55%,#07140c)}
+.bgx:before{inset:0;background:conic-gradient(from 200deg at 20% -10%,transparent 0 8%,#ffffff26 10%,transparent 14%),conic-gradient(from 150deg at 80% -10%,transparent 0 8%,#ffffff20 10%,transparent 14%);animation:sw 9s ease-in-out infinite alternate;transform-origin:50% 0}
+@keyframes sw{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.bgx:after{left:-20%;right:-20%;bottom:0;width:auto;height:38%;border-radius:0;box-shadow:none;opacity:.55;background:repeating-linear-gradient(90deg,#1f7a3d 0 70px,#24893f 70px 140px);transform:perspective(500px) rotateX(58deg);transform-origin:bottom;animation:none;mask-image:linear-gradient(transparent,#000 40%)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]) .bgx{opacity:.2}}:root[data-theme="light"] .bgx{opacity:.2}
+.hh{font-size:1.3rem;font-weight:800;margin:0 0 14px;letter-spacing:2px}
+.wkg{display:grid;grid-template-columns:repeat(3,90px);gap:10px}.wk{height:90px;border-radius:16px;border:1px solid var(--line);background:var(--card);font-size:2.2rem;cursor:pointer}.wk:active{transform:scale(.94)}
+footer{position:relative;z-index:1;text-align:center;color:var(--mut);padding:20px 18px 60px;font-size:.82rem}
+@media(max-width:640px){.duel{grid-template-columns:1fr}.vs{text-align:center}.bar .wrap{overflow-x:auto}.sel{grid-template-columns:1fr}.cr{grid-template-columns:1fr 70px 1fr}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style></head><body>
+<div class="bgx"></div><canvas id="fx"></canvas>
+<header class="bar"><div class="wrap"><span class="logo">GOAT<b>ARENA</b> 2</span>
+<button class="tab" role="tab" data-t="duel" aria-selected="true">Duel</button><button class="tab" role="tab" data-t="cmp" aria-selected="false">Compare</button><button class="tab" role="tab" data-t="rank" aria-selected="false">Rankings</button><button class="tab" role="tab" data-t="pen" aria-selected="false">Shootout</button><button class="tab" role="tab" data-t="quiz" aria-selected="false">Quiz</button><button class="tab" role="tab" data-t="mem" aria-selected="false">Memory</button><button class="tab" role="tab" data-t="keep" aria-selected="false">Keepy-uppy</button><button class="tab" role="tab" data-t="hl" aria-selected="false">Titles</button><button class="tab" role="tab" data-t="wk" aria-selected="false">Catch</button><button class="tab" role="tab" data-t="facts" aria-selected="false">Facts</button>
+<button class="ic" id="th" aria-label="Toggle theme">◐</button></div></header>
+<div class="wrap">
+<div class="hero"><h1>Who is the <span>GOAT</span>?</h1><div class="words"><div id="wd"></div></div><p class="lead">Eight legends, seven duels. Click or use the ← → keys, then compare them stat by stat.</p><div class="strip"><div><b>8</b>Legends</div><div><b>5</b>Games</div><div><b>7</b>Duels</div><div><b>2026</b>Updated</div></div></div>
+
+<section id="s-duel"><h2>The duel</h2><p class="sub">Pick the better player each round.</p><div id="stage"></div></section>
+<section id="s-cmp"><h2>Head to head</h2><p class="sub">Site owner’s ratings (opinion), scored 0–99.</p><div class="sel"><select id="sa"></select><select id="sb"></select></div><div class="cmp" id="cmp"></div></section>
+<section id="s-rank"><h2>Rankings</h2><p class="sub">The site owner’s verdict: Ronaldo first, Messi last. The number on the right is the Arena stat rating, which is separate from the verdict.</p><div id="rk"></div></section>
+<section id="s-pen"><h2>Penalty shootout</h2><p class="sub">Press a direction when the marker is in the green. Edges mean you blaze it over.</p>
+<div class="pen"><div class="goal"><div class="gk" id="gk">🧤</div><div class="ball" id="bl">⚽</div></div>
+<div class="meter"><i id="mk"></i></div><div class="dots" id="dots"></div>
+<div class="row" style="justify-content:center"><button class="btn" data-d="0">⬅ Left</button><button class="btn" data-d="1">⬆ Middle</button><button class="btn" data-d="2">Right ➡</button></div><div class="msg" id="msg">Take your first shot!</div></div></section>
+<section id="s-quiz"><h2>Football quiz</h2><p class="sub">Ten questions, no time limit.</p><div id="qz"></div></section>
+<section id="s-mem"><h2>Memory match</h2><p class="sub">Find all eight flag pairs in the fewest moves.</p><div class="row" style="margin:0 0 12px;align-items:center"><button class="btn g" id="mrs">Shuffle</button><b id="mmv"></b></div><div class="mg2" id="mg2"></div></section>
+<section id="s-keep"><h2>Keepy-uppy</h2><p class="sub">Tap the ball to keep it in the air.</p><div class="row" style="margin:0 0 12px;align-items:center"><button class="btn" id="kgo">Start</button><b id="kst">Score: 0</b></div><div class="kbx" id="kbx"><span class="kball" id="kball">⚽</span></div><div class="msg" id="kmsg"></div></section>
+<section id="s-hl"><h2>World Cup titles</h2><p class="sub">Which country has won more World Cups? Three hearts, so choose well.</p><div class="hh" id="hlh"></div><div id="hlb"></div></section>
+<section id="s-wk"><h2>Catch the ball</h2><p class="sub">Tap each ball before it disappears. Every miss costs a heart.</p><div class="hh" id="wkh">❤️❤️❤️</div><div class="wkg"><button class="wk"></button><button class="wk"></button><button class="wk"></button><button class="wk"></button><button class="wk"></button><button class="wk"></button><button class="wk"></button><button class="wk"></button><button class="wk"></button></div><div class="row" style="align-items:center"><button class="btn" id="wkgo">Start</button><b id="wkm"></b></div></section>
+<section id="s-facts"><h2>World Cup facts</h2><p class="sub">Updated through the 2026 tournament.</p><div class="facts">
+<div><b>Spain</b>Beat Argentina 1–0 after extra time in the 2026 final</div><div><b>10</b>Goals for Mbappé, the 2026 Golden Boot</div><div><b>5</b>Titles for Brazil, the most ever</div><div><b>2030</b>Next World Cup: Morocco, Spain and Portugal</div></div></section>
+</div>
+<footer>GOAT Arena 2. Ratings are opinions, results are yours.</footer>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const STATS=["Skill","Finishing","Vision","Big games","Longevity"],RND=["Quarter-final","Semi-final","Final"];
+const P=[
+{n:"Lionel Messi",f:"🇦🇷",k:"8 Ballon d’Or awards",b:"2022 champion with 8 goals at the 2026 World Cup.",r:[98,97,99,96,96.5]},
+{n:"Cristiano Ronaldo",f:"🇵🇹",k:"5 Ballon d’Or awards",b:"One of the most prolific scorers in football history.",r:[99,99,95,97,99]},
+{n:"Pelé",f:"🇧🇷",k:"3 World Cups",b:"The only player to win three World Cups, the first at 17.",r:[94,96,90,98,85]},
+{n:"Diego Maradona",f:"🇦🇷",k:"1986 World Cup captain",b:"Carried Argentina to the title and Napoli to league glory.",r:[99,90,95,94,80]},
+{n:"Johan Cruyff",f:"🇳🇱",k:"3 Ballon d’Or awards",b:"Face of Total Football and the 1974 finalists.",r:[94,88,97,86,82]},
+{n:"Zinedine Zidane",f:"🇫🇷",k:"2 goals in the 1998 final",b:"Won the 1998 World Cup and Euro 2000 with elegance.",r:[96,85,96,93,84]},
+{n:"Ronaldo Nazário",f:"🇧🇷",k:"15 World Cup goals",b:"Champion in 1994 and 2002, the most feared striker of his era.",r:[95,98,84,88,72]},
+{n:"Kylian Mbappé",f:"🇫🇷",k:"2026 Golden Boot, 10 goals",b:"World Cup winner at 19 and a 2022 final hat-trick scorer.",r:[93,95,86,91,80]}];
+const avg=p=>+(p.r.reduce((a,b)=>a+b)/p.r.length).toFixed(1);
+let store={};try{store=JSON.parse(localStorage.getItem("goat2")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("goat2",JSON.stringify(store))}catch(e){}};
+/* tabs */
+function tab(t){$$(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.t==t));$("#s-"+t).scrollIntoView({behavior:"smooth"})}
+$$(".tab").forEach(b=>b.onclick=()=>tab(b.dataset.t));
+$("#th").onclick=()=>{const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=dark?"light":"dark"};
+/* rotating words */
+const W=["Ronaldo is the GOAT.","Pelé or Maradona?","Cruyff or Zidane?","You decide."];$("#wd").innerHTML=W.map(w=>`<p>${w}</p>`).join("");
+let wi=0;setInterval(()=>{wi=(wi+1)%W.length;$("#wd").style.transform=`translateY(${-wi*1.5}em)`},2400);
+/* duel */
+let S,hist=[];
+const shuf=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const bars=p=>STATS.map((s,i)=>`<div class="st"><span>${s}</span><u><i data-w="${p.r[i]}"></i></u><span>${p.r[i]}</span></div>`).join("");
+function begin(){S={cur:shuf(P),nxt:[],i:0,rd:0,won:[]};hist=[];draw()}
+function card(p,k){return `<button class="pc" data-k="${k}"><kbd>${k?"→":"←"}</kbd><div class="fl">${p.f}</div><h3>${p.n}</h3><div class="k">${p.k}</div><p>${p.b}</p>${bars(p)}</button>`}
+function draw(){const a=S.cur[S.i],b=S.cur[S.i+1],d=S.won.length;
+$("#stage").innerHTML=`<b>${RND[S.rd]}</b><div class="prog">${Array.from({length:7},(_,i)=>`<i class="${i<d?"on":""}"></i>`).join("")}</div><div class="duel">${card(a,0)}<div class="vs">VS</div>${card(b,1)}</div><div class="path">${S.won.map(w=>`<b>${w.n}</b>`).join("")||"Your picks appear here"}</div><div class="row"><button class="btn g" id="un" ${hist.length?"":"disabled"}>Undo</button><button class="btn g" id="rs">Restart</button></div>`;
+requestAnimationFrame(()=>$$("#stage [data-w]").forEach(e=>e.style.width=e.dataset.w+"%"));
+$$("#stage .pc").forEach(c=>c.onclick=()=>pick(+c.dataset.k));$("#un").onclick=undo;$("#rs").onclick=begin}
+function pick(k){hist.push(JSON.stringify({c:S.cur.map(p=>p.n),x:S.nxt.map(p=>p.n),i:S.i,rd:S.rd,w:S.won.map(p=>p.n)}));
+const w=S.cur[S.i+k];S.nxt.push(w);S.won.push(w);S.i+=2;
+if(S.i>=S.cur.length){if(S.nxt.length==1)return end(w);S.cur=S.nxt;S.nxt=[];S.i=0;S.rd++}draw()}
+function undo(){const h=hist.pop();if(!h)return;const o=JSON.parse(h),m=n=>P.find(p=>p.n==n);S={cur:o.c.map(m),nxt:o.x.map(m),i:o.i,rd:o.rd,won:o.w.map(m)};draw()}
+function end(w){store[w.n]=(store[w.n]||0)+1;save();rank();const t=`I picked ${w.n} as the GOAT on GOAT Arena! Who is yours? ${location.href}`;
+$("#stage").innerHTML=`<div class="champ"><div style="font-size:3rem">👑</div><b>YOUR GOAT</b><h3>${w.n}</h3><p>${w.f} ${w.k}</p><p style="color:var(--c);font-weight:800">Site verdict: Cristiano Ronaldo is the GOAT 👑</p><div class="row"><a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(t)}">Share on WhatsApp</a><button class="btn g" id="cp">Copy</button><button class="btn r" id="ag">Play again</button></div></div>`;
+$("#ag").onclick=begin;$("#cp").onclick=()=>{try{navigator.clipboard.writeText(t)}catch(e){}}}
+document.addEventListener("keydown",e=>{if(!$(".duel")||/SELECT|INPUT/.test(document.activeElement.tagName))return;if(e.key=="ArrowLeft")pick(0);if(e.key=="ArrowRight")pick(1)});
+/* compare */
+$("#sa").innerHTML=$("#sb").innerHTML=P.map((p,i)=>`<option value="${i}">${p.n}</option>`).join("");$("#sb").value=1;
+function cmp(){const a=P[$("#sa").value],b=P[$("#sb").value];
+$("#cmp").innerHTML=`<div class="cr" style="font-size:1rem;color:var(--ink)"><b>${a.f} ${a.n}</b><span>${avg(a)} vs ${avg(b)}</span><b>${b.f} ${b.n}</b></div>`+STATS.map((s,i)=>`<div class="cr"><u><i data-w="${a.r[i]}"></i></u><span>${s}<br>${a.r[i]} – ${b.r[i]}</span><u><i data-w="${b.r[i]}"></i></u></div>`).join("");
+requestAnimationFrame(()=>$$("#cmp [data-w]").forEach(e=>e.style.width=e.dataset.w+"%"))}
+$("#sa").onchange=$("#sb").onchange=cmp;
+/* rankings */
+function rank(){const key=p=>-avg(p);$("#rk").innerHTML=[...P].sort((a,b)=>key(a)-key(b)).map((p,i)=>`<div class="rk"><b>${i+1}</b><div><b>${p.f} ${p.n}</b>${p.n=="Cristiano Ronaldo"?' 👑 <small style="color:var(--c)">Site’s GOAT</small>':p.n=="Lionel Messi"?' <small style="color:var(--b)">0.5 behind</small>':''}<br><small style="color:var(--mut)">Your crowns: ${store[p.n]||0}</small><u><i style="width:0" data-w="${avg(p)}"></i></u></div><b>${avg(p)}</b></div>`).join("");
+requestAnimationFrame(()=>$$("#rk [data-w]").forEach(e=>e.style.width=e.dataset.w+"%"))}
+/* shootout */
+let sc=0,kk=0,res=[],t0=performance.now(),pos=50;
+function loop(t){pos=50+50*Math.sin((t-t0)/320);$("#mk").style.left=`calc(${pos}% - 3px)`;requestAnimationFrame(loop)}requestAnimationFrame(loop);
+const dots=()=>{const d=[...res];while(d.length<5)d.push("○");$("#dots").textContent=d.join(" ")};dots();
+$$("[data-d]").forEach(b=>b.onclick=()=>{if(kk>=5){kk=0;sc=0;res=[]}
+const d=+b.dataset.d,g=Math.random()*3|0,acc=Math.abs(pos-50),X=[12,50,88],bl=$("#bl"),gk=$("#gk");let ok,txt;
+if(acc>38){ok=false;txt="Over the bar! 🚀"}else{const sv=g==d&&Math.random()<(acc<16?.35:.9);ok=!sv;txt=ok?(acc<16?"Perfect finish! 🎯":"GOAL! 🎉"):"Saved! 🧤"}
+bl.style.left=X[d]+"%";bl.style.bottom=acc>38?"150px":"70px";gk.style.left=X[g]+"%";kk++;if(ok)sc++;res.push(ok?"⚽":"❌");dots();$("#msg").textContent=txt;
+setTimeout(()=>{bl.style.left="50%";bl.style.bottom="-46px";gk.style.left="50%"},900);
+if(kk>=5)setTimeout(()=>$("#msg").textContent=`Final: ${sc}/5 ${sc>=4?"🏆 World class!":sc>=3?"👏 Solid!":"Keep practising!"} Tap to play again.`,950)});
+/* quiz */
+const Q=[["Which country has won the most World Cups?",["Germany","Brazil","Italy","Argentina"],1],["Who won the 2026 World Cup?",["Spain","France","Argentina","England"],0],["Who hosted and won the first World Cup in 1930?",["Brazil","Italy","Uruguay","Argentina"],2],["Who won the 2026 Golden Boot?",["Messi","Haaland","Bellingham","Mbappé"],3],["Who is the only player to win three World Cups?",["Pelé","Maradona","Ronaldo","Zidane"],0],["Which countries are the main hosts of the 2030 World Cup?",["Morocco, Spain, Portugal","Qatar, UAE","Japan, Korea","Brazil, Chile"],0]];
+let qi=0,qs=0;
+function quiz(){const q=Q[qi];if(!q){$("#qz").innerHTML='<div class="champ"><h3>'+qs+'/'+Q.length+'</h3><p>'+(qs>=5?'🏆 Football genius!':qs>=3?'👏 Good knowledge!':'Keep learning!')+'</p><button class="btn" id="qr">Play again</button></div>';$("#qr").onclick=()=>{qi=0;qs=0;quiz()};return}
+$("#qz").innerHTML='<div class="cmp"><small>Question '+(qi+1)+' of '+Q.length+'</small><h3>'+q[0]+'</h3>'+q[1].map((o,i)=>'<button class="qo" data-i="'+i+'">'+o+'</button>').join('')+'</div>';
+$$(".qo").forEach(b=>b.onclick=()=>{const ok=+b.dataset.i==q[2];if(ok)qs++;b.classList.add(ok?'ok':'no');$$(".qo")[q[2]].classList.add('ok');$$(".qo").forEach(x=>x.disabled=true);setTimeout(()=>{qi++;quiz()},900)})}
+/* memory */
+let mf=[],mm=0,ml=false,mt=[];
+function mem(){const f=["🇧🇷","🇦🇷","🇫🇷","🇪🇸","🇩🇪","🇮🇹","🇵🇹","🇳🇱"];mt=shuf([...f,...f]);mf=[];mm=0;ml=false;$("#mg2").innerHTML=mt.map((e,i)=>'<button class="mc" data-i="'+i+'"><span>'+e+'</span></button>').join('');$("#mmv").textContent="Moves: 0";
+$$(".mc").forEach(c=>c.onclick=()=>{if(ml||c.classList.contains("up"))return;c.classList.add("up");mf.push(c);if(mf.length==2){mm++;$("#mmv").textContent="Moves: "+mm;const[a,b]=mf;if(mt[a.dataset.i]==mt[b.dataset.i]){mf=[];a.classList.add("done");b.classList.add("done");if($$(".mc.done").length==16)$("#mmv").textContent="You won in "+mm+" moves! 🏆"}else{ml=true;setTimeout(()=>{a.classList.remove("up");b.classList.remove("up");mf=[];ml=false},800)}}})}
+$("#mrs").onclick=mem;
+/* keepy-uppy */
+const KB=$("#kbx"),KL=$("#kball");let kb={x:150,y:60,vx:0,vy:0,s:0,on:false};
+function ktick(){if(kb.on){kb.vy+=.45;kb.x+=kb.vx;kb.y+=kb.vy;const w=KB.clientWidth,h=KB.clientHeight;if(kb.x<20||kb.x>w-20){kb.vx*=-1;kb.x=Math.max(20,Math.min(w-20,kb.x))}if(kb.y>h-30){kb.on=false;store.kbest=Math.max(store.kbest||0,kb.s);save();$("#kmsg").textContent="Game over! Score "+kb.s+". Best "+store.kbest+". Tap Start to try again."}KL.style.transform="translate("+(kb.x-20)+"px,"+(kb.y-20)+"px)"}requestAnimationFrame(ktick)}
+KL.onpointerdown=e=>{e.preventDefault();if(!kb.on)return;kb.vy=-10;kb.vx=(Math.random()-.5)*6;kb.s++;$("#kst").textContent="Score: "+kb.s};
+$("#kgo").onclick=()=>{kb={x:KB.clientWidth/2,y:60,vx:0,vy:0,s:0,on:true};$("#kst").textContent="Score: 0";$("#kmsg").textContent=""};
+Q.push(["Which country won the 2022 World Cup?",["France","Argentina","Croatia","Brazil"],1],["Who scored a hat-trick in the 2022 final?",["Messi","Mbappé","Di María","Giroud"],1],["Which country won the World Cup in 1966?",["England","West Germany","Brazil","Portugal"],0],["Which country won back-to-back World Cups in 1934 and 1938?",["Italy","Brazil","Uruguay","Germany"],0]);
+const hr=n=>'❤️'.repeat(n)+'🖤'.repeat(3-n);
+const WC=[['Brazil',5],['Germany',4],['Italy',4],['Argentina',3],['France',2],['Uruguay',2],['Spain',2],['England',1]];
+let hn=3,hs=0,hp=[];
+function hl(){if(hn<=0){$('#hlh').textContent=hr(0)+'  Final score: '+hs;$('#hlb').innerHTML='<div class="champ"><h3>'+hs+'</h3><p>Game over</p><button class="btn" id="hrs">Play again</button></div>';$('#hrs').onclick=()=>{hn=3;hs=0;hl()};return}
+$('#hlh').textContent=hr(hn)+'  Score: '+hs;let a,b;do{a=WC[Math.random()*8|0];b=WC[Math.random()*8|0]}while(a[1]==b[1]);hp=[a,b];
+$('#hlb').innerHTML='<div class="duel"><button class="pc" data-i="0"><h3>'+a[0]+'</h3></button><div class="vs">OR</div><button class="pc" data-i="1"><h3>'+b[0]+'</h3></button></div><div class="msg" id="hm"></div>';
+$$('#hlb .pc').forEach(c=>c.onclick=()=>{const i=+c.dataset.i,ok=hp[i][1]>hp[1-i][1];if(ok)hs++;else hn--;$('#hm').textContent=(ok?'Correct! ':'Wrong! ')+hp[0][0]+' '+hp[0][1]+' vs '+hp[1][0]+' '+hp[1][1];$$('#hlb .pc').forEach(z=>z.disabled=true);setTimeout(hl,1100)})}
+let wn=3,ws=0,wrun=false,wcur=-1,wto,wsp=1000;
+const wh=()=>$('#wkh').textContent=hr(wn)+'  Score: '+ws;
+function wend(){wrun=false;$$('.wk').forEach(c=>c.textContent='');store.wbest=Math.max(store.wbest||0,ws);save();$('#wkm').textContent='Game over! Score '+ws+'. Best '+store.wbest+'.'}
+function wsp2(){if(!wrun)return;$$('.wk').forEach(c=>c.textContent='');wcur=Math.random()*9|0;$$('.wk')[wcur].textContent='⚽';clearTimeout(wto);wto=setTimeout(()=>{wn--;wh();if(wn<=0){wend();return}wsp2()},wsp)}
+$$('.wk').forEach((c,i)=>c.onclick=()=>{if(!wrun||i!=wcur)return;ws++;wsp=Math.max(450,wsp-25);wh();wsp2()});
+$('#wkgo').onclick=()=>{wn=3;ws=0;wsp=1000;wrun=true;$('#wkm').textContent='';wh();wsp2()};
+hl();
+ktick();quiz();mem();
+$("#s-rank .sub").textContent="Ranked by the site owner’s ratings (opinion). Ronaldo leads, with Messi 0.5 behind.";
+/* background */
+const cv=$("#fx"),x=cv.getContext("2d");let ps=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight;ps=Array.from({length:Math.min(60,innerWidth/20|0)},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*2+1,v:Math.random()*.4+.1}))}
+function fx(){x.clearRect(0,0,cv.width,cv.height);x.fillStyle=getComputedStyle(document.documentElement).getPropertyValue("--a")||"#7cffb2";x.globalAlpha=.3;ps.forEach(p=>{p.y-=p.v;if(p.y<0)p.y=cv.height;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill()});if(!matchMedia("(prefers-reduced-motion:reduce)").matches)requestAnimationFrame(fx)}
+let ST=[],SH=[],ink="#fff",fr=0;
+function rs2(){cv.width=innerWidth;cv.height=innerHeight;const n=Math.min(320,cv.width*cv.height/5500|0);ST=Array.from({length:n},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,z:Math.random()*.9+.1,p:Math.random()*6.28}))}
+function fx2(t){fr++;if(fr%90==1)ink=getComputedStyle(document.documentElement).getPropertyValue("--ink").trim()||"#fff";x.clearRect(0,0,cv.width,cv.height);x.fillStyle=ink;
+ST.forEach(s=>{s.x-=s.z*.12;if(s.x<0)s.x=cv.width;x.globalAlpha=.25+.55*s.z*(.6+.4*Math.sin(t/700+s.p));x.beginPath();x.arc(s.x,s.y,s.z*1.5,0,7);x.fill()});
+if(Math.random()<.006)SH.push({x:Math.random()*cv.width,y:Math.random()*cv.height*.4,l:0});
+SH=SH.filter(s=>s.l<40);SH.forEach(s=>{s.x+=14;s.y+=7;s.l++;const g=x.createLinearGradient(s.x-90,s.y-45,s.x,s.y);g.addColorStop(0,"transparent");g.addColorStop(1,ink);x.globalAlpha=1-s.l/40;x.strokeStyle=g;x.lineWidth=1.6;x.beginPath();x.moveTo(s.x-90,s.y-45);x.lineTo(s.x,s.y);x.stroke()});
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)requestAnimationFrame(fx2)}
+let FL=[];
+function fx3(){x.clearRect(0,0,cv.width,cv.height);if(Math.random()<.15)FL.push({x:Math.random()*cv.width,y:cv.height*(.5+Math.random()*.45),l:0});FL=FL.filter(f=>f.l<14);FL.forEach(f=>{f.l++;const r=(14*(1-f.l/14)+2)*2,g=x.createRadialGradient(f.x,f.y,0,f.x,f.y,r);g.addColorStop(0,'#fff');g.addColorStop(1,'transparent');x.globalAlpha=1-f.l/14;x.fillStyle=g;x.beginPath();x.arc(f.x,f.y,r,0,7);x.fill()});if(!matchMedia('(prefers-reduced-motion:reduce)').matches)requestAnimationFrame(fx3)}
+addEventListener("resize",rs2);rs2();requestAnimationFrame(fx3);begin();cmp();rank();
+</script></body></html>
